@@ -1,0 +1,97 @@
+*{
+  box-sizing:border-box;
+  font-family:system-ui, sans-serif;
+}
+
+body{
+  margin:0;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+}
+{
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.top h1{
+  font-family: 'Poppins', sans-serif;
+}
+.app{
+  max-width:480px;
+  margin:auto;
+  padding:16px;
+}
+
+.top{
+  text-align:center;
+  color:white;
+  margin-bottom:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+.upload-box{
+  display:block;
+  border:2px dashed #6366f1;
+  padding:16px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:600;
+  cursor:pointer;
+  color:#4f46e5;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:12px 0;
+  border-radius:12px;
+  border:1px solid #ddd;
+}
+
+.btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+}
+
+#loader{
+  display:none;
+  text-align:center;
+  margin-top:12px;
+  font-weight:600;
+}
+
+.download-btn{
+  display:none;
+  margin-top:15px;
+  padding:12px;
+  background:#22c55e;
+  color:white;
+  text-align:center;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  margin-top:25px;
+  color:white;
+  font-size:14px;
+}
+
+footer a{
+  color:#e0e7ff;
+  margin:0 6px;
+  text-decoration:none;
+}

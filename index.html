@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Compress Image to Any Size Online</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compress image to desired size in KB. Mobile-first, fast & secure image compressor.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6366f1">
+<link rel="stylesheet" href="style.css"
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap"
+>
+</head>
+<body>
+
+<div class="app">
+
+  <header class="top">
+    <h1>Image Compressor</h1>
+    <p>Select image → enter size → download</p>
+  </header>
+
+  <div class="card">
+
+    <label class="upload-box">
+      <input type="file" id="upload" accept="image/*" hidden>
+      <span>📤 Select Image</span>
+    </label>
+
+    <!-- ✅ FILE INFO + PREVIEW -->
+    <div id="file-info" style="margin:10px 0; font-weight:500;"></div>
+    <img id="preview" style="max-width:100%; border-radius:12px; margin-top:10px; display:none;">
+
+    <input type="number" id="targetSize" placeholder="Target size (KB eg. 100)" min="10">
+
+    <button class="btn" onclick="startCompression()">Compress Image</button>
+
+    <div id="loader">⏳ Compressing...</div>
+
+    <a id="download" class="download-btn"></a>
+
+  </div>
+
+  <footer>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+    <p>© 2026 Image Compressor</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+<!-- ✅ SERVICE WORKER + INSTALL PROMPT (OPTIONAL) -->
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+
+// ✅ IMAGE SELECT FEEDBACK
+const uploadInput = document.getElementById("upload");
+const fileInfo = document.getElementById("file-info");
+const preview = document.getElementById("preview");
+
+uploadInput.addEventListener("change", function(){
+    if(this.files && this.files[0]){
+        const file = this.files[0];
+        fileInfo.innerText = `Selected: ${file.name}`;
+        const reader = new FileReader();
+        reader.onload = e => {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+        }
+        reader.readAsDataURL(file);
+
+        // Border color change for feedback
+        this.parentElement.style.borderColor = "#22c55e"; // green
+    } else {
+        fileInfo.innerText = "";
+        preview.style.display = "none";
+        this.parentElement.style.borderColor = "#6366f1"; // default
+    }
+});
+</script>
+
+</body>
+</html>
